@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ResearchLearningHub | Social Science & Environmental Consultancy</title>
+<meta name="description" content="ResearchLearningHub delivers expert social science research, environmental impact assessment, policy analysis, and data-driven insights for sustainable development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #1a4a2e;
+    --green-mid: #2d7a4f;
+    --green-light: #4caf7d;
+    --green-pale: #e8f5ed;
+    --blue-deep: #0e3460;
+    --blue-mid: #1a5fa8;
+    --blue-light: #4a90d9;
+    --blue-pale: #e8f0fb;
+    --white: #ffffff;
+    --off-white: #f7f9f7;
+    --text-dark: #1a2a1e;
+    --text-mid: #3d5440;
+    --text-light: #6b8272;
+    --border: #d4e4da;
+    --gold: #c9a84c;
+    --shadow-sm: 0 2px 12px rgba(26,74,46,0.08);
+    --shadow-md: 0 8px 32px rgba(26,74,46,0.12);
+    --shadow-lg: 0 20px 60px rgba(26,74,46,0.16);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-dark);
+    background: var(--white);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+    font-weight: 700;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    padding: 0 5%;
+  }
+
+  .nav-inner {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+  }
+
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--green-mid), var(--blue-mid));
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-weight: 700; font-size: 16px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .logo-text { display: flex; flex-direction: column; line-height: 1; }
+  .logo-name { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--green-deep); font-weight: 700; }
+  .logo-sub { font-size: 10px; color: var(--text-light); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px; }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 4px; list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none; color: var(--text-mid);
+    font-size: 14px; font-weight: 500;
+    padding: 8px 14px; border-radius: 6px;
+    transition: all 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--green-mid); background: var(--green-pale); }
+
+  .nav-cta {
+    background: var(--green-mid) !important;
+    color: white !important;
+    padding: 9px 20px !important;
+    border-radius: 8px !important;
+  }
+
+  .nav-cta:hover { background: var(--green-deep) !important; }
+
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+
+  /* ── PAGE SECTIONS ── */
+  .page { display: none; padding-top: 72px; }
+  .page.active { display: block; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: calc(100vh - 72px);
+    background: linear-gradient(160deg, var(--green-deep) 0%, #0e3460 60%, #1a4a2e 100%);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 80px 5%;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(77,175,125,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(74,144,217,0.15) 0%, transparent 50%);
+  }
+
+  .hero-grid {
+    max-width: 1280px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    position: relative;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    padding: 6px 16px; border-radius: 100px; margin-bottom: 28px;
+    color: #9fd4b5; font-size: 13px; font-weight: 500; letter-spacing: 0.5px;
+  }
+
+  .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--green-light); display: block; }
+
+  .hero h1 {
+    font-size: clamp(36px, 4.5vw, 58px);
+    color: white; margin-bottom: 24px;
+    line-height: 1.15;
+  }
+
+  .hero h1 em { color: #7dd3a8; font-style: normal; }
+
+  .hero-sub {
+    font-size: 18px; color: rgba(255,255,255,0.75);
+    margin-bottom: 44px; max-width: 480px; line-height: 1.7;
+  }
+
+  .btn-group { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--green-light); color: white;
+    padding: 14px 32px; border-radius: 10px;
+    font-size: 15px; font-weight: 600;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: all 0.25s; display: inline-block;
+  }
+
+  .btn-primary:hover { background: #3d9e6b; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(77,175,125,0.35); }
+
+  .btn-outline {
+    background: transparent; color: white;
+    padding: 14px 32px; border-radius: 10px;
+    font-size: 15px; font-weight: 600;
+    text-decoration: none; border: 2px solid rgba(255,255,255,0.35); cursor: pointer;
+    transition: all 0.25s; display: inline-block;
+  }
+
+  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+    background: rgba(255,255,255,0.1); border-radius: 16px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.15); margin-top: 48px;
+  }
+
+  .hero-stat {
+    background: rgba(255,255,255,0.05); padding: 24px;
+    text-align: center;
+  }
+
+  .hero-stat .num { font-family: 'Playfair Display', serif; font-size: 36px; color: #7dd3a8; font-weight: 700; }
+  .hero-stat .label { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 4px; letter-spacing: 0.5px; }
+
+  .hero-visual {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+
+  .hero-card {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px; padding: 28px 24px;
+    backdrop-filter: blur(8px);
+  }
+
+  .hero-card:nth-child(1) { grid-column: span 2; background: rgba(77,175,125,0.12); }
+
+  .hero-card-icon { font-size: 28px; margin-bottom: 12px; }
+  .hero-card h4 { color: white; font-size: 15px; margin-bottom: 6px; font-family: 'DM Sans', sans-serif; font-weight: 600; }
+  .hero-card p { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.5; }
+
+  /* ── SECTION COMMONS ── */
+  .section { padding: 90px 5%; }
+  .section-alt { background: var(--off-white); }
+  .section-dark { background: var(--green-deep); color: white; }
+
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 12px; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--green-mid); margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .section-label::before {
+    content: ''; display: block; width: 24px; height: 2px; background: var(--green-mid);
+  }
+
+  .section-title { font-size: clamp(28px, 3vw, 42px); margin-bottom: 16px; }
+  .section-sub { font-size: 17px; color: var(--text-light); max-width: 600px; line-height: 1.7; }
+
+  .section-header { margin-bottom: 60px; }
+  .section-header.center { text-align: center; }
+  .section-header.center .section-label { justify-content: center; }
+  .section-header.center .section-label::before { display: none; }
+  .section-header.center .section-sub { margin: 0 auto; }
+
+  /* ── INTRO ── */
+  .intro-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+
+  .intro-text h2 { margin-bottom: 20px; }
+  .intro-text p { color: var(--text-mid); margin-bottom: 20px; font-size: 16px; line-height: 1.8; }
+
+  .intro-pillars { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+
+  .pillar {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 20px; background: var(--green-pale);
+    border-radius: 12px; border-left: 3px solid var(--green-mid);
+  }
+
+  .pillar-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+  .pillar h4 { font-size: 15px; color: var(--green-deep); margin-bottom: 4px; font-family: 'DM Sans', sans-serif; font-weight: 600; }
+  .pillar p { font-size: 13px; color: var(--text-light); }
+
+  /* ── SERVICES GRID ── */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+
+  .service-card {
+    background: white; border-radius: 16px; padding: 36px 28px;
+    border: 1px solid var(--border); transition: all 0.3s;
+    position: relative; overflow: hidden;
+  }
+
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--green-mid), var(--blue-mid));
+    transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+  }
+
+  .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: transparent; }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    background: var(--green-pale); display: flex; align-items: center;
+    justify-content: center; font-size: 26px; margin-bottom: 20px;
+  }
+
+  .service-card h3 { font-size: 18px; margin-bottom: 10px; }
+  .service-card p { font-size: 14px; color: var(--text-light); line-height: 1.7; }
+
+  .service-tag {
+    display: inline-block; margin-top: 16px;
+    font-size: 11px; font-weight: 600; letter-spacing: 1px;
+    color: var(--green-mid); text-transform: uppercase;
+    padding: 4px 10px; background: var(--green-pale); border-radius: 4px;
+  }
+
+  /* ── RESEARCH AREAS ── */
+  .areas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+  .area-card {
+    border-radius: 16px; padding: 36px 28px;
+    background: white; border: 1px solid var(--border);
+    position: relative; overflow: hidden; transition: all 0.3s;
+  }
+
+  .area-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+  .area-number {
+    position: absolute; top: 20px; right: 24px;
+    font-family: 'Playfair Display', serif; font-size: 56px;
+    color: var(--green-pale); font-weight: 700; line-height: 1;
+  }
+
+  .area-icon { font-size: 32px; margin-bottom: 16px; }
+  .area-card h3 { font-size: 20px; margin-bottom: 10px; color: var(--green-deep); }
+  .area-card p { font-size: 14px; color: var(--text-light); line-height: 1.7; }
+
+  .area-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 20px; font-size: 13px; font-weight: 600;
+    color: var(--green-mid); text-decoration: none;
+  }
+
+  /* ── TRUST ── */
+  .trust-section { background: var(--blue-deep); padding: 70px 5%; }
+
+  .trust-inner {
+    max-width: 1280px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: center;
+  }
+
+  .trust-text h2 { color: white; font-size: 36px; margin-bottom: 16px; }
+  .trust-text p { color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.7; }
+
+  .trust-logos {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
+  }
+
+  .trust-logo {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px; padding: 24px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; color: rgba(255,255,255,0.6); text-align: center;
+    font-weight: 500;
+  }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--green-deep) 0%, var(--blue-deep) 100%);
+    padding: 90px 5%; text-align: center;
+  }
+
+  .cta-section h2 { color: white; font-size: clamp(28px, 3vw, 44px); margin-bottom: 16px; }
+  .cta-section p { color: rgba(255,255,255,0.75); font-size: 18px; max-width: 560px; margin: 0 auto 40px; }
+
+  /* ── ABOUT ── */
+  .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 60px; }
+
+  .mission-card {
+    padding: 40px; border-radius: 20px;
+  }
+
+  .mission-card.green { background: var(--green-deep); color: white; }
+  .mission-card.blue { background: var(--blue-pale); }
+
+  .mission-card h3 { font-size: 24px; margin-bottom: 16px; }
+  .mission-card p { font-size: 15px; line-height: 1.8; opacity: 0.85; }
+
+  .team-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+
+  .team-card {
+    text-align: center; padding: 32px 20px;
+    background: white; border-radius: 16px;
+    border: 1px solid var(--border); transition: all 0.3s;
+  }
+
+  .team-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+
+  .team-avatar {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--green-mid), var(--blue-mid));
+    margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; color: white;
+  }
+
+  .team-card h4 { font-size: 16px; margin-bottom: 4px; font-family: 'DM Sans', sans-serif; font-weight: 600; }
+  .team-card .role { font-size: 13px; color: var(--green-mid); font-weight: 500; margin-bottom: 12px; }
+  .team-card p { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+
+  .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+
+  .value-card {
+    padding: 32px; background: white; border-radius: 16px;
+    border: 1px solid var(--border); text-align: center;
+  }
+
+  .value-icon { font-size: 36px; margin-bottom: 16px; }
+  .value-card h3 { font-size: 18px; margin-bottom: 10px; color: var(--green-deep); }
+  .value-card p { font-size: 14px; color: var(--text-light); line-height: 1.7; }
+
+  /* ── PROJECTS ── */
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+
+  .project-card {
+    background: white; border-radius: 20px;
+    border: 1px solid var(--border); overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .project-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+
+  .project-banner {
+    height: 140px; padding: 28px;
+    display: flex; align-items: flex-end;
+  }
+
+  .project-banner.green { background: linear-gradient(135deg, var(--green-deep), var(--green-mid)); }
+  .project-banner.blue { background: linear-gradient(135deg, var(--blue-deep), var(--blue-mid)); }
+  .project-banner.teal { background: linear-gradient(135deg, #1a5a4a, #2d9a7a); }
+  .project-banner.navy { background: linear-gradient(135deg, #1a2a5a, #2d4a9a); }
+
+  .project-tag-box {
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+    padding: 6px 14px; border-radius: 100px;
+    font-size: 12px; color: white; font-weight: 500;
+  }
+
+  .project-body { padding: 28px; }
+  .project-body h3 { font-size: 20px; margin-bottom: 12px; color: var(--green-deep); }
+
+  .case-row { margin-bottom: 16px; }
+  .case-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--green-mid); margin-bottom: 4px; }
+  .case-row p { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+
+  .result-chip {
+    display: inline-block; padding: 6px 14px; border-radius: 8px;
+    background: var(--green-pale); color: var(--green-deep);
+    font-size: 13px; font-weight: 600; margin-top: 8px;
+  }
+
+  /* ── PUBLICATIONS ── */
+  .pubs-grid { display: flex; flex-direction: column; gap: 20px; }
+
+  .pub-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px 32px;
+    display: flex; align-items: flex-start; gap: 24px;
+    transition: all 0.3s;
+  }
+
+  .pub-card:hover { box-shadow: var(--shadow-md); border-color: var(--green-mid); }
+
+  .pub-type {
+    flex-shrink: 0; padding: 8px 16px; border-radius: 8px;
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; min-width: 100px; text-align: center;
+  }
+
+  .pub-type.report { background: var(--green-pale); color: var(--green-deep); }
+  .pub-type.white { background: var(--blue-pale); color: var(--blue-deep); }
+  .pub-type.policy { background: #fff8e8; color: #8a6520; }
+  .pub-type.brief { background: #f0e8ff; color: #5a20a0; }
+
+  .pub-content h3 { font-size: 18px; margin-bottom: 6px; color: var(--green-deep); }
+  .pub-meta { font-size: 13px; color: var(--text-light); margin-bottom: 8px; }
+  .pub-content p { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+
+  .pub-link {
+    display: inline-flex; align-items: center; gap: 4px; margin-top: 12px;
+    font-size: 13px; font-weight: 600; color: var(--green-mid); text-decoration: none;
+  }
+
+  /* ── BLOG ── */
+  .blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+
+  .blog-card {
+    background: white; border-radius: 16px;
+    border: 1px solid var(--border); overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .blog-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+
+  .blog-banner {
+    height: 120px; display: flex; align-items: center; justify-content: center;
+    font-size: 40px;
+  }
+
+  .blog-banner.g1 { background: linear-gradient(135deg, #e8f5ed, #c8e6d4); }
+  .blog-banner.g2 { background: linear-gradient(135deg, #e8f0fb, #c8d8f8); }
+  .blog-banner.g3 { background: linear-gradient(135deg, #fff8e8, #f8e8c0); }
+  .blog-banner.g4 { background: linear-gradient(135deg, #f0e8ff, #dcc8f8); }
+  .blog-banner.g5 { background: linear-gradient(135deg, #e8f5f0, #c8e8e0); }
+  .blog-banner.g6 { background: linear-gradient(135deg, #fde8e8, #f8c8c8); }
+
+  .blog-body { padding: 24px; }
+  .blog-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--green-mid); margin-bottom: 10px; }
+  .blog-body h3 { font-size: 16px; margin-bottom: 10px; color: var(--green-deep); line-height: 1.4; }
+  .blog-body p { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+  .blog-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-light); }
+
+  /* ── CONTACT ── */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; }
+
+  .contact-info h2 { font-size: 32px; margin-bottom: 16px; }
+  .contact-info p { color: var(--text-mid); margin-bottom: 36px; line-height: 1.7; }
+
+  .contact-items { display: flex; flex-direction: column; gap: 20px; }
+
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 20px; background: var(--green-pale); border-radius: 12px;
+  }
+
+  .contact-item-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--green-mid); display: flex; align-items: center;
+    justify-content: center; font-size: 20px; flex-shrink: 0;
+  }
+
+  .contact-item h4 { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-bottom: 4px; font-family: 'DM Sans', sans-serif; }
+  .contact-item p { font-size: 15px; color: var(--text-dark); font-weight: 500; }
+
+  .contact-form { background: white; border-radius: 20px; padding: 40px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+  .contact-form h3 { font-size: 24px; margin-bottom: 28px; }
+
+  .form-group { margin-bottom: 20px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text-mid); margin-bottom: 6px; }
+
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 12px 16px; border-radius: 10px;
+    border: 1px solid var(--border); font-family: 'DM Sans', sans-serif;
+    font-size: 15px; color: var(--text-dark); background: var(--off-white);
+    transition: all 0.2s; outline: none;
+  }
+
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--green-mid); background: white;
+    box-shadow: 0 0 0 3px rgba(45,122,79,0.1);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .map-placeholder {
+    margin-top: 48px; background: var(--green-pale);
+    border-radius: 16px; padding: 48px; text-align: center;
+    border: 2px dashed var(--border);
+  }
+
+  .map-placeholder .map-icon { font-size: 48px; margin-bottom: 16px; }
+  .map-placeholder h3 { font-size: 20px; margin-bottom: 8px; color: var(--green-deep); }
+  .map-placeholder p { color: var(--text-light); font-size: 14px; }
+  .map-placeholder .address { font-weight: 600; color: var(--text-dark); margin-top: 16px; font-size: 15px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--green-deep); color: rgba(255,255,255,0.8);
+    padding: 60px 5% 30px;
+  }
+
+  .footer-grid {
+    max-width: 1280px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+    padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 30px;
+  }
+
+  .footer-brand p { font-size: 14px; line-height: 1.7; margin-top: 16px; opacity: 0.7; max-width: 280px; }
+
+  .footer-col h4 { color: white; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; font-family: 'DM Sans', sans-serif; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col ul li a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: #7dd3a8; }
+
+  .footer-bottom {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px; opacity: 0.5;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    .nav-links, .nav-cta-wrap { display: none; }
+    .nav-toggle { display: block; }
+    .hero-grid, .intro-grid, .mission-grid, .contact-grid, .trust-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { display: none; }
+    .services-grid, .areas-grid, .team-grid, .values-grid, .blog-grid { grid-template-columns: 1fr 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .trust-logos { grid-template-columns: repeat(2,1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .pub-card { flex-direction: column; }
+  }
+
+  @media (max-width: 600px) {
+    .services-grid, .areas-grid, .team-grid, .values-grid, .blog-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up { animation: fadeUp 0.6s ease forwards; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+
+  /* Active nav state */
+  .nav-links a.active { color: var(--green-mid); background: var(--green-pale); }
+
+  /* Divider */
+  .divider { height: 1px; background: var(--border); margin: 0 5%; }
+
+  /* Green btn dark bg */
+  .btn-green {
+    background: var(--green-light); color: white;
+    padding: 14px 36px; border-radius: 10px;
+    font-size: 15px; font-weight: 600;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: all 0.25s; display: inline-block;
+  }
+  .btn-green:hover { background: #3d9e6b; transform: translateY(-2px); }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo" onclick="showPage('home')">
+      <div class="logo-mark">R</div>
+      <div class="logo-text">
+        <span class="logo-name">ResearchLearningHub</span>
+        <span class="logo-sub">Social Science · Environment</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#" onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
+      <li><a href="#" onclick="showPage('about')" id="nav-about">About Us</a></li>
+      <li><a href="#" onclick="showPage('services')" id="nav-services">Services</a></li>
+      <li><a href="#" onclick="showPage('research')" id="nav-research">Research Areas</a></li>
+      <li><a href="#" onclick="showPage('projects')" id="nav-projects">Projects</a></li>
+      <li><a href="#" onclick="showPage('publications')" id="nav-publications">Publications</a></li>
+      <li><a href="#" onclick="showPage('blog')" id="nav-blog">Blog</a></li>
+      <li><a href="#" onclick="showPage('contact')" class="nav-cta" id="nav-contact">Contact Us</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="toggleMobileMenu()">☰</button>
+  </div>
+</nav>
+
+<!-- ══════════════════════ HOME ══════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="fade-up">
+        <div class="hero-badge"><span></span> Est. 2012 · Dhaka, Bangladesh</div>
+        <h1>Advancing Knowledge for a <em>Sustainable</em> and Equitable World</h1>
+        <p class="hero-sub">We combine rigorous social science research with environmental expertise to deliver evidence-based insights that drive meaningful policy and community impact.</p>
+        <div class="btn-group">
+          <a href="#" class="btn-primary" onclick="showPage('services')">Explore Our Services</a>
+          <a href="#" class="btn-outline" onclick="showPage('projects')">View Case Studies →</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="num">180+</div><div class="label">Projects Completed</div></div>
+          <div class="hero-stat"><div class="num">32</div><div class="label">Countries Reached</div></div>
+          <div class="hero-stat"><div class="num">95%</div><div class="label">Client Satisfaction</div></div>
+        </div>
+      </div>
+      <div class="hero-visual fade-up delay-2">
+        <div class="hero-card">
+          <div class="hero-card-icon">🌿</div>
+          <h4>Environmental Impact Assessment</h4>
+          <p>Comprehensive EIA services aligned with international standards and local regulatory frameworks.</p>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">📊</div>
+          <h4>Data Analytics</h4>
+          <p>Transforming complex field data into actionable insights and policy recommendations.</p>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">🔬</div>
+          <h4>Social Research</h4>
+          <p>Mixed-methods research capturing the human dimensions of development challenges.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="section">
+    <div class="container">
+      <div class="intro-grid">
+        <div class="intro-text">
+          <div class="section-label">Who We Are</div>
+          <h2 class="section-title">A Research-Driven Consultancy Built on Evidence and Integrity</h2>
+          <p>ResearchLearningHub is a leading social science and environmental research consultancy based in Dhaka, Bangladesh. Since 2012, we have partnered with governments, NGOs, international organizations, and private sector clients to deliver research that matters.</p>
+          <p>Our interdisciplinary team of researchers, data scientists, and environmental specialists brings rigorous academic thinking to real-world challenges — from climate adaptation strategies to urban development planning and public health systems.</p>
+          <a href="#" class="btn-primary" onclick="showPage('about')">Learn About Us →</a>
+        </div>
+        <div class="intro-pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🎯</div>
+            <div>
+              <h4>Evidence-Based Approach</h4>
+              <p>Every recommendation we make is grounded in rigorous data collection and analysis.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🤝</div>
+            <div>
+              <h4>Participatory Methods</h4>
+              <p>We work alongside communities, not just for them, ensuring local voices shape outcomes.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🌍</div>
+            <div>
+              <h4>Global Standards, Local Insights</h4>
+              <p>International research frameworks applied with deep contextual knowledge of South Asia.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">📈</div>
+            <div>
+              <h4>Impact-Oriented Delivery</h4>
+              <p>Our work translates into policies, programmes, and decisions that create lasting change.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SUMMARY -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-label">What We Do</div>
+        <h2 class="section-title">Comprehensive Research & Consultancy Services</h2>
+        <p class="section-sub">From field surveys to national policy recommendations, we offer end-to-end research and consultancy solutions.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🔬</div>
+          <h3>Social Science Research</h3>
+          <p>Qualitative and quantitative studies exploring societal trends, community dynamics, and human behavior across diverse contexts.</p>
+          <span class="service-tag">Research</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🌿</div>
+          <h3>Environmental Impact Assessment</h3>
+          <p>Comprehensive EIA reports meeting national and international standards for development projects of all scales.</p>
+          <span class="service-tag">Environment</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📋</div>
+          <h3>Data Collection & Field Surveys</h3>
+          <p>Large-scale household surveys, KII, FGD, and digital data collection using CAPI and other modern methodologies.</p>
+          <span class="service-tag">Data</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📜</div>
+          <h3>Policy Analysis</h3>
+          <p>Rigorous policy review, stakeholder analysis, and evidence synthesis to inform legislative and programmatic decisions.</p>
+          <span class="service-tag">Policy</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3>Monitoring & Evaluation</h3>
+          <p>Robust M&amp;E frameworks, baseline and endline studies, and real-time performance monitoring systems.</p>
+          <span class="service-tag">M&amp;E</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🖥️</div>
+          <h3>Data Analysis & Visualization</h3>
+          <p>Advanced statistical analysis, GIS mapping, and interactive dashboards that make complex data accessible.</p>
+          <span class="service-tag">Analytics</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH AREAS PREVIEW -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Research Focus</div>
+        <h2 class="section-title">Key Areas of Expertise</h2>
+        <p class="section-sub">Our research addresses the most pressing challenges at the intersection of society and environment.</p>
+      </div>
+      <div class="areas-grid">
+        <div class="area-card">
+          <div class="area-number">01</div>
+          <div class="area-icon">🌡️</div>
+          <h3>Climate Change & Adaptation</h3>
+          <p>Vulnerability assessments, adaptation planning, and climate finance research for frontline communities.</p>
+          <a href="#" class="area-link" onclick="showPage('research')">Explore →</a>
+        </div>
+        <div class="area-card">
+          <div class="area-number">02</div>
+          <div class="area-icon">🏙️</div>
+          <h3>Urban Development</h3>
+          <p>Smart city research, informal settlement studies, and inclusive urban planning frameworks.</p>
+          <a href="#" class="area-link" onclick="showPage('research')">Explore →</a>
+        </div>
+        <div class="area-card">
+          <div class="area-number">03</div>
+          <div class="area-icon">🏥</div>
+          <h3>Public Health</h3>
+          <p>Health system assessments, disease burden studies, and WASH programme evaluations.</p>
+          <a href="#" class="area-link" onclick="showPage('research')">Explore →</a>
+        </div>
+        <div class="area-card">
+          <div class="area-number">04</div>
+          <div class="area-icon">📚</div>
+          <h3>Education</h3>
+          <p>Learning outcome assessments, school-to-work transition studies, and inclusive education research.</p>
+          <a href="#" class="area-link" onclick="showPage('research')">Explore →</a>
+        </div>
+        <div class="area-card">
+          <div class="area-number">05</div>
+          <div class="area-icon">♻️</div>
+          <h3>Sustainability</h3>
+          <p>Corporate sustainability assessments, ESG research, and circular economy studies.</p>
+          <a href="#" class="area-link" onclick="showPage('research')">Explore →</a>
+        </div>
+        <div class="area-card">
+          <div class="area-number">06</div>
+          <div class="area-icon">🤝</div>
+          <h3>Social Inclusion</h3>
+          <p>Gender equality assessments, disability studies, and marginalized community research.</p>
+          <a href="#" class="area-link" onclick="showPage('research')">Explore →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <div class="trust-section">
+    <div class="trust-inner">
+      <div class="trust-text">
+        <h2>Trusted by Leading Organizations Globally</h2>
+        <p>From UN agencies and bilateral donors to government ministries and academic institutions — our clients trust ResearchLearningHub to deliver research that makes a difference.</p>
+      </div>
+      <div class="trust-logos">
+        <div class="trust-logo">World Bank Group</div>
+        <div class="trust-logo">UNDP Bangladesh</div>
+        <div class="trust-logo">UNICEF</div>
+        <div class="trust-logo">Ministry of Environment</div>
+        <div class="trust-logo">USAID</div>
+        <div class="trust-logo">Asian Development Bank</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="section-label" style="color:#7dd3a8;justify-content:center;margin-bottom:20px;">
+      <span>Start a Conversation</span>
+    </div>
+    <h2>Ready to Turn Research into Real Impact?</h2>
+    <p>Whether you need a rapid assessment or a multi-year research programme, our team is ready to collaborate with you.</p>
+    <a href="#" class="btn-green" onclick="showPage('contact')">Get in Touch Today</a>
+  </div>
+
+</div><!-- /home -->
+
+<!-- ══════════════════════ ABOUT ══════════════════════ -->
+<div class="page" id="page-about">
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">About Us</div>
+        <h1 class="section-title">Research with Purpose. Knowledge with Impact.</h1>
+        <p class="section-sub">Founded in 2012, ResearchLearningHub has grown into one of South Asia's most trusted social science and environmental research consultancies.</p>
+      </div>
+
+      <!-- Mission & Vision -->
+      <div class="mission-grid">
+        <div class="mission-card green">
+          <h3>🎯 Our Mission</h3>
+          <p>To generate rigorous, actionable research and knowledge that empowers governments, civil society, and communities to make evidence-based decisions for sustainable human development and environmental stewardship.</p>
+        </div>
+        <div class="mission-card blue">
+          <h3>🔭 Our Vision</h3>
+          <p>A world where research bridges the gap between knowledge and action — where social science insights and environmental evidence drive policies that leave no one behind and protect our planet for future generations.</p>
+        </div>
+      </div>
+
+      <!-- Background -->
+      <div style="max-width:800px;margin:0 auto 60px;text-align:center;">
+        <div class="section-label" style="justify-content:center;">Our Story</div>
+        <h2 class="section-title">Over a Decade of Evidence-Driven Excellence</h2>
+        <p style="color:var(--text-mid);font-size:16px;line-height:1.8;margin-top:16px;">ResearchLearningHub was established by a group of development researchers and environmental scientists who shared a common belief: that quality research, when made accessible and actionable, can transform societies. Beginning with a small team of five in Dhaka, we have grown to a multidisciplinary team of 60+ researchers, analysts, and field coordinators operating across Bangladesh and beyond. Our portfolio spans climate adaptation, urban resilience, public health systems, education reform, and inclusive economic growth.</p>
+      </div>
+
+      <!-- Team -->
+      <div class="section-header center">
+        <div class="section-label">Our People</div>
+        <h2 class="section-title">Meet the Leadership Team</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">👨‍🔬</div>
+          <h4>Dr. Arman Hossain</h4>
+          <div class="role">Executive Director</div>
+          <p>PhD in Environmental Studies from University of Dhaka. 18 years of experience in climate research and policy.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">👩‍💼</div>
+          <h4>Dr. Nusrat Jahan</h4>
+          <div class="role">Director of Research</div>
+          <p>Expert in mixed-methods social research with specialization in gender and social inclusion studies.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">👨‍💻</div>
+          <h4>Md. Karim Uddin</h4>
+          <div class="role">Head of Data & Analytics</div>
+          <p>Specialist in geospatial analysis, statistical modelling, and digital data collection systems.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">👩‍🌿</div>
+          <h4>Fatema Begum</h4>
+          <div class="role">Lead Environmental Scientist</div>
+          <p>15 years of EIA and environmental audit experience across infrastructure and energy sectors.</p>
+        </div>
+      </div>
+
+      <!-- Values -->
+      <div style="margin-top:72px;">
+        <div class="section-header center">
+          <div class="section-label">Core Values</div>
+          <h2 class="section-title">The Principles That Guide Everything We Do</h2>
+        </div>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">🔍</div>
+            <h3>Research Integrity</h3>
+            <p>We maintain the highest standards of academic rigour, transparency, and ethical conduct in all our research activities.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🌱</div>
+            <h3>Sustainability</h3>
+            <p>Every project we undertake considers long-term environmental and social sustainability as a non-negotiable outcome.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">💡</div>
+            <h3>Innovation</h3>
+            <p>We embrace emerging research technologies and methodologies to deliver insights that go beyond conventional approaches.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <h3>Collaboration</h3>
+            <p>We believe the best research happens through meaningful partnerships with communities, institutions, and governments.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">⚖️</div>
+            <h3>Equity & Inclusion</h3>
+            <p>Our research actively amplifies marginalized voices and works towards more equitable development outcomes.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">📢</div>
+            <h3>Knowledge Sharing</h3>
+            <p>We openly publish and disseminate our research findings to maximize public benefit and contribute to the global knowledge commons.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════ SERVICES ══════════════════════ -->
+<div class="page" id="page-services">
+  <section class="section">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-label">Our Services</div>
+        <h1 class="section-title">End-to-End Research & Consultancy Solutions</h1>
+        <p class="section-sub">We deliver the full spectrum of research, analysis, and advisory services — from initial scoping to final policy briefs.</p>
+      </div>
+
+      <!-- Service 1 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px;">
+        <div>
+          <div class="section-label">01 · Research</div>
+          <h2 style="font-size:32px;margin-bottom:16px;">Social Science Research</h2>
+          <p style="color:var(--text-mid);line-height:1.8;margin-bottom:16px;">We conduct rigorous social research using a mix of qualitative and quantitative methods, including household surveys, in-depth interviews, focus group discussions, ethnographic fieldwork, and literature synthesis. Our researchers are trained in ethical research practices and participatory approaches that respect community rights and dignity.</p>
+          <p style="color:var(--text-mid);line-height:1.8;margin-bottom:24px;">We specialize in studies on poverty, gender dynamics, social cohesion, livelihoods, migration, and community resilience across rural and urban contexts in South Asia.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="service-tag">Household Surveys</span>
+            <span class="service-tag">KII & FGD</span>
+            <span class="service-tag">Ethnography</span>
+            <span class="service-tag">Rapid Assessments</span>
+          </div>
+        </div>
+        <div style="background:var(--green-pale);border-radius:20px;padding:40px;">
+          <div style="font-size:64px;text-align:center;margin-bottom:20px;">🔬</div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="background:white;border-radius:10px;padding:16px;font-size:14px;color:var(--text-mid);">✔ Mixed-methods research design</div>
+            <div style="background:white;border-radius:10px;padding:16px;font-size:14px;color:var(--text-mid);">✔ IRB-compliant ethical protocols</div>
+            <div style="background:white;border-radius:10px;padding:16px;font-size:14px;color:var(--text-mid);">✔ Nationally representative sampling</div>
+            <div style="background:white;border-radius:10px;padding:16px;font-size:14px;color:var(--text-mid);">✔ Multilingual field teams</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div><br><br>
+
+      <!-- Service 2 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px;">
+        <div style="background:var(--blue-pale);border-radius:20px;padding:40px;order:1;">
+          <div style="font-size:64px;text-align:center;margin-bottom:20px;">🌿</div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="background:white;border-radius:10px;padding:16px;font-size:14px;color:var(--text-mid);">✔ Baseline environmental audits</div>
+            <div style="background:white;border-radius:10px;padding:16px;font-size:14px;color:var(--text-mid);">✔ Air, water & soil quality assessment</div>
+            <div style="background:white;border-radius:10px;padding:16px;font-size:14px;color:var(--text-mid);">✔ Biodiversity and ecosystem surveys</div>
+            <div style="background:white;border-radius:10px;padding:16px;font-size:14px;color:var(--text-mid);">✔ DoE and IFC compliance reporting</div>
+          </div>
+        </div>
+        <div>
+          <div class="section-label">02 · Environment</div>
+          <h2 style="font-size:32px;margin-bottom:16px;">Environmental Impact Assessment</h2>
+          <p style="color:var(--text-mid);line-height:1.8;margin-bottom:16px;">Our EIA services provide comprehensive assessment of environmental impacts for infrastructure, industrial, energy, and development projects. We combine field ecology, environmental engineering, and social assessment to produce holistic EIA reports that meet both national Department of Environment (DoE) requirements and international standards (IFC, World Bank, ADB).</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="service-tag">EIA Reports</span>
+            <span class="service-tag">Environmental Audit</span>
+            <span class="service-tag">ESIA</span>
+            <span class="service-tag">Ecological Survey</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div><br><br>
+
+      <!-- Service 3 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px;">
+        <div>
+          <div class="section-label">03 · Data</div>
+          <h2 style="font-size:32px;margin-bottom:16px;">Data Collection & Field Surveys</h2>
+          <p style="color:var(--text-mid);line-height:1.8;margin-bottom:16px;">We manage large-scale data collection operations across Bangladesh and the wider South Asia region. Our field teams are trained in CAPI (Computer-Assisted Personal Interviewing) using SurveyCTO and KoBoToolbox, ensuring real-time data quality monitoring and rapid turnaround.</p>
+          <p style="color:var(--text-mid);line-height:1.8;margin-bottom:24px;">We have the capacity to deploy 200+ enumerators simultaneously and have conducted surveys covering hundreds of thousands of households.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="service-tag">CAPI Surveys</span>
+            <span class="service-tag">KoBoToolbox</span>
+            <span class="service-tag">SurveyCTO</span>
+            <span class="service-tag">GIS Mapping</span>
+          </div>
+        </div>
+        <div style="background:#fff8e8;border-radius:20px;padding:40px;">
+          <div style="font-size:64px;text-align:center;margin-bottom:20px;">📋</div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="background:white;border-radius:10px;padding:16px;font-size:14px;color:var(--text-mid);">✔ 200+ trained field enumerators</div>
+            <div style="background:white;border-radius:10px;padding:16px;font-size:14px;color:var(--text-mid);">✔ Real-time data quality checks</div>
+            <div style="background:white;border-radius:10px;padding:16px;font-size:14px;color:var(--text-mid);">✔ Geospatial tracking & validation</div>
+            <div style="background:white;border-radius:10px;padding:16px;font-size:14px;color:var(--text-mid);">✔ Rapid turnaround & clean datasets</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services 4 & 5 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:20px;">
+        <div class="service-card" style="padding:40px;">
+          <div class="service-icon" style="font-size:32px;width:64px;height:64px;">📜</div>
+          <div class="section-label" style="margin:16px 0 8px;">04 · Policy</div>
+          <h3 style="font-size:24px;margin-bottom:12px;">Policy Analysis</h3>
+          <p style="color:var(--text-mid);line-height:1.8;">We conduct in-depth analysis of existing policies, regulatory frameworks, and legislative documents to identify gaps, inconsistencies, and opportunities. Our policy briefs synthesize complex evidence into clear recommendations for decision-makers, backed by stakeholder consultations and comparative international analysis.</p>
+        </div>
+        <div class="service-card" style="padding:40px;">
+          <div class="service-icon" style="font-size:32px;width:64px;height:64px;">📊</div>
+          <div class="section-label" style="margin:16px 0 8px;">05 · M&amp;E</div>
+          <h3 style="font-size:24px;margin-bottom:12px;">Monitoring & Evaluation</h3>
+          <p style="color:var(--text-mid);line-height:1.8;">We design and implement comprehensive M&amp;E systems for development projects and programmes. Services include results framework design, baseline and endline assessments, mid-term reviews, process monitoring, and impact evaluations using experimental and quasi-experimental methods.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════ RESEARCH AREAS ══════════════════════ -->
+<div class="page" id="page-research">
+  <section class="section">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-label">Research Focus</div>
+        <h1 class="section-title">Our Core Research Areas</h1>
+        <p class="section-sub">Interdisciplinary research spanning the most critical issues at the nexus of society, development, and environment.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:40px;">
+
+        <!-- Area 1 -->
+        <div style="display:grid;grid-template-columns:1fr 2fr;gap:40px;background:white;border:1px solid var(--border);border-radius:20px;overflow:hidden;">
+          <div style="background:linear-gradient(135deg,var(--green-deep),var(--green-mid));padding:48px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+            <div style="font-size:56px;margin-bottom:16px;">🌡️</div>
+            <h3 style="color:white;font-size:22px;">Climate Change & Adaptation</h3>
+          </div>
+          <div style="padding:48px;">
+            <p style="color:var(--text-mid);line-height:1.8;margin-bottom:20px;">Bangladesh stands on the frontlines of the climate crisis. Our climate research portfolio includes community-based vulnerability and risk assessments, climate finance tracking, adaptation programme evaluations, and loss and damage studies. We work closely with the Bangladesh Climate Change Trust Fund and international climate financing mechanisms.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <span class="service-tag">Vulnerability Assessment</span>
+              <span class="service-tag">Adaptation Planning</span>
+              <span class="service-tag">Climate Finance</span>
+              <span class="service-tag">Loss & Damage</span>
+              <span class="service-tag">Disaster Risk Reduction</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Area 2 -->
+        <div style="display:grid;grid-template-columns:1fr 2fr;gap:40px;background:white;border:1px solid var(--border);border-radius:20px;overflow:hidden;">
+          <div style="background:linear-gradient(135deg,var(--blue-deep),var(--blue-mid));padding:48px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+            <div style="font-size:56px;margin-bottom:16px;">🏙️</div>
+            <h3 style="color:white;font-size:22px;">Urban Development</h3>
+          </div>
+          <div style="padding:48px;">
+            <p style="color:var(--text-mid);line-height:1.8;margin-bottom:20px;">Rapid urbanization is reshaping cities across South Asia. Our urban research examines informal settlements, urban service delivery, transportation planning, land use change, and smart city frameworks. We collaborate with city corporations, urban planners, and community organizations to co-produce knowledge for inclusive urban futures.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <span class="service-tag">Informal Settlements</span>
+              <span class="service-tag">Urban Resilience</span>
+              <span class="service-tag">Smart City</span>
+              <span class="service-tag">Land Use</span>
+              <span class="service-tag">Affordable Housing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Area 3 -->
+        <div style="display:grid;grid-template-columns:1fr 2fr;gap:40px;background:white;border:1px solid var(--border);border-radius:20px;overflow:hidden;">
+          <div style="background:linear-gradient(135deg,#1a5a4a,#2d9a7a);padding:48px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+            <div style="font-size:56px;margin-bottom:16px;">🏥</div>
+            <h3 style="color:white;font-size:22px;">Public Health</h3>
+          </div>
+          <div style="padding:48px;">
+            <p style="color:var(--text-mid);line-height:1.8;margin-bottom:20px;">Our public health research portfolio spans health systems strengthening, disease burden analysis, WASH programme evaluations, maternal and child health studies, and mental health research. We have conducted major health surveys and programme evaluations for UNICEF, WHO, and the Ministry of Health and Family Welfare, Bangladesh.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <span class="service-tag">Health Systems</span>
+              <span class="service-tag">WASH</span>
+              <span class="service-tag">Maternal Health</span>
+              <span class="service-tag">Disease Surveillance</span>
+              <span class="service-tag">Mental Health</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Areas 4 & 5 -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
+          <div style="background:white;border:1px solid var(--border);border-radius:20px;overflow:hidden;">
+            <div style="background:linear-gradient(135deg,#4a2d7a,#7a4aaa);padding:36px;text-align:center;">
+              <div style="font-size:48px;margin-bottom:12px;">📚</div>
+              <h3 style="color:white;font-size:20px;">Education</h3>
+            </div>
+            <div style="padding:32px;">
+              <p style="color:var(--text-mid);line-height:1.8;margin-bottom:16px;">Learning outcomes assessment, access to education studies, teacher effectiveness research, and school-to-work transition analysis. We work with BRAC, UNICEF, and the Ministry of Primary and Mass Education to advance evidence-based education reform.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                <span class="service-tag">Learning Assessment</span>
+                <span class="service-tag">EMIS</span>
+                <span class="service-tag">Inclusive Education</span>
+              </div>
+            </div>
+          </div>
+          <div style="background:white;border:1px solid var(--border);border-radius:20px;overflow:hidden;">
+            <div style="background:linear-gradient(135deg,#7a4a1a,#c07a3a);padding:36px;text-align:center;">
+              <div style="font-size:48px;margin-bottom:12px;">♻️</div>
+              <h3 style="color:white;font-size:20px;">Sustainability</h3>
+            </div>
+            <div style="padding:32px;">
+              <p style="color:var(--text-mid);line-height:1.8;margin-bottom:16px;">Corporate sustainability assessment, ESG reporting support, green supply chain research, and circular economy studies. We help organizations understand and communicate their social and environmental performance.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                <span class="service-tag">ESG Research</span>
+                <span class="service-tag">Circular Economy</span>
+                <span class="service-tag">Green Supply Chain</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════ PROJECTS ══════════════════════ -->
+<div class="page" id="page-projects">
+  <section class="section">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-label">Portfolio</div>
+        <h1 class="section-title">Projects & Case Studies</h1>
+        <p class="section-sub">A selection of our recent research engagements demonstrating our multi-sector expertise.</p>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-banner green">
+            <span class="project-tag-box">Climate Change · UNDP</span>
+          </div>
+          <div class="project-body">
+            <h3>Community Climate Vulnerability Assessment in Coastal Bangladesh</h3>
+            <div class="case-row">
+              <div class="case-label">🔴 Problem</div>
+              <p>Coastal communities in three southern districts faced increasing climate risks with no systematic vulnerability data to guide adaptation investment.</p>
+            </div>
+            <div class="case-row">
+              <div class="case-label">🔵 Approach</div>
+              <p>Mixed-methods vulnerability assessment covering 12,000 households across 60 unions, combined with GIS-based risk mapping and stakeholder workshops.</p>
+            </div>
+            <div class="case-row">
+              <div class="case-label">🟢 Result</div>
+              <p>Produced district-level vulnerability atlases adopted by UNDP and local government for $25M adaptation fund allocation decisions.</p>
+            </div>
+            <span class="result-chip">📍 3 Districts · 60 Unions · 12,000 HH</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-banner blue">
+            <span class="project-tag-box">Urban Development · World Bank</span>
+          </div>
+          <div class="project-body">
+            <h3>Informal Settlement Resilience Study — Dhaka Metropolitan Area</h3>
+            <div class="case-row">
+              <div class="case-label">🔴 Problem</div>
+              <p>Rapid urbanization was creating unplanned settlements lacking services, with limited understanding of resident needs and coping strategies.</p>
+            </div>
+            <div class="case-row">
+              <div class="case-label">🔵 Approach</div>
+              <p>Ethnographic fieldwork, participatory mapping, and a representative survey of 8,500 slum dwellers across 45 wards of Dhaka.</p>
+            </div>
+            <div class="case-row">
+              <div class="case-label">🟢 Result</div>
+              <p>Research directly informed the World Bank's $350M Urban Resilience Project design and targeting criteria.</p>
+            </div>
+            <span class="result-chip">📍 Dhaka · 45 Wards · 8,500 HH</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-banner teal">
+            <span class="project-tag-box">Public Health · UNICEF</span>
+          </div>
+          <div class="project-body">
+            <h3>National WASH Programme Endline Evaluation</h3>
+            <div class="case-row">
+              <div class="case-label">🔴 Problem</div>
+              <p>A five-year national WASH programme required rigorous independent evaluation to assess impact and inform the next programme cycle.</p>
+            </div>
+            <div class="case-row">
+              <div class="case-label">🔵 Approach</div>
+              <p>Quasi-experimental endline survey of 18,000 households in 8 divisions, matched against baseline data, with qualitative case studies in 20 communities.</p>
+            </div>
+            <div class="case-row">
+              <div class="case-label">🟢 Result</div>
+              <p>Found 62% reduction in open defecation and 45% improvement in handwashing practices. Findings shaped UNICEF's new $180M WASH strategy.</p>
+            </div>
+            <span class="result-chip">📍 8 Divisions · 18,000 HH · 62% ODF improvement</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-banner navy">
+            <span class="project-tag-box">Environmental · ADB</span>
+          </div>
+          <div class="project-body">
+            <h3>Environmental Impact Assessment — Dhaka Metro Rail Extension</h3>
+            <div class="case-row">
+              <div class="case-label">🔴 Problem</div>
+              <p>A major urban rail infrastructure project required a comprehensive EIA and Social Impact Assessment compliant with ADB Safeguard Policies.</p>
+            </div>
+            <div class="case-row">
+              <div class="case-label">🔵 Approach</div>
+              <p>Baseline ecological surveys, air and noise quality measurements, resettlement impact assessment of 4,200 project-affected persons, and public consultations in 12 wards.</p>
+            </div>
+            <div class="case-row">
+              <div class="case-label">🟢 Result</div>
+              <p>EIA and resettlement plan approved by ADB, enabling $1.2B project financing. Mitigation measures adopted by project authority.</p>
+            </div>
+            <span class="result-chip">📍 Dhaka Metro · 4,200 PAPs · ADB Approved</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════ PUBLICATIONS ══════════════════════ -->
+<div class="page" id="page-publications">
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Knowledge Products</div>
+        <h1 class="section-title">Publications & Research Outputs</h1>
+        <p class="section-sub">We believe in open knowledge. Our publications are freely available to support researchers, policymakers, and practitioners worldwide.</p>
+      </div>
+
+      <div class="pubs-grid">
+        <div class="pub-card">
+          <div class="pub-type report">Research Report</div>
+          <div class="pub-content">
+            <h3>Bangladesh Climate Vulnerability Index 2024: A District-Level Analysis</h3>
+            <div class="pub-meta">ResearchLearningHub · Published March 2024 · 148 pages</div>
+            <p>A comprehensive district-by-district analysis of climate vulnerability across Bangladesh, combining physical, social, economic, and institutional dimensions into a composite index with policy recommendations.</p>
+            <a href="#" class="pub-link">Download PDF ↓</a>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-type white">Whitepaper</div>
+          <div class="pub-content">
+            <h3>Digital Data Collection in Low-Connectivity Environments: Lessons from 50,000+ Surveys</h3>
+            <div class="pub-meta">ResearchLearningHub · Published January 2024 · 56 pages</div>
+            <p>Practical guidance on deploying CAPI surveys in remote and connectivity-challenged settings, drawing from our decade of field experience across Bangladesh, Myanmar, and Nepal.</p>
+            <a href="#" class="pub-link">Download PDF ↓</a>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-type policy">Policy Brief</div>
+          <div class="pub-content">
+            <h3>Financing Climate Adaptation for Coastal Communities: Gaps and Opportunities in Bangladesh</h3>
+            <div class="pub-meta">ResearchLearningHub · Published November 2023 · 24 pages</div>
+            <p>An analysis of existing climate finance flows reaching coastal communities in Bangladesh, identifying critical gaps and proposing mechanisms for improved targeting and delivery of adaptation finance.</p>
+            <a href="#" class="pub-link">Download PDF ↓</a>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-type report">Research Report</div>
+          <div class="pub-content">
+            <h3>State of Urban Informality: Housing, Services and Livelihoods in Dhaka's Slums</h3>
+            <div class="pub-meta">ResearchLearningHub · Published September 2023 · 112 pages</div>
+            <p>A landmark study of Dhaka's informal settlements covering housing conditions, service access, livelihood strategies, and community social capital — based on a representative survey of 15,000 households.</p>
+            <a href="#" class="pub-link">Download PDF ↓</a>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-type brief">Research Brief</div>
+          <div class="pub-content">
+            <h3>Gender and Climate Risk: Women's Differentiated Vulnerabilities in Flood-Prone Char Areas</h3>
+            <div class="pub-meta">ResearchLearningHub · Published June 2023 · 18 pages</div>
+            <p>A focused research brief examining how gender inequalities compound climate vulnerability in Bangladesh's riverine char (sandbar island) communities, with targeted policy recommendations.</p>
+            <a href="#" class="pub-link">Download PDF ↓</a>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-type white">Whitepaper</div>
+          <div class="pub-content">
+            <h3>Integrating Community Knowledge in Environmental Impact Assessments: A Practitioner's Guide</h3>
+            <div class="pub-meta">ResearchLearningHub · Published March 2023 · 72 pages</div>
+            <p>Methodological guidance for EIA practitioners on systematically incorporating indigenous and local knowledge into environmental baseline assessments and impact prediction processes.</p>
+            <a href="#" class="pub-link">Download PDF ↓</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════ BLOG ══════════════════════ -->
+<div class="page" id="page-blog">
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Insights & Ideas</div>
+        <h1 class="section-title">Research Blog & Perspectives</h1>
+        <p class="section-sub">Our researchers share insights, methods, and perspectives on the issues shaping social science and environmental research today.</p>
+      </div>
+
+      <div class="blog-grid">
+        <div class="blog-card">
+          <div class="blog-banner g1">🌊</div>
+          <div class="blog-body">
+            <div class="blog-tag">Climate Change</div>
+            <h3>Why Loss and Damage Isn't Just a Financial Question — It's a Research Imperative</h3>
+            <p>The COP28 breakthrough on loss and damage finance creates urgent new research needs. Here's what social scientists and environmental researchers need to measure.</p>
+            <div class="blog-footer">
+              <span>Dr. Arman Hossain</span>
+              <span>April 12, 2025</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-banner g2">🏙️</div>
+          <div class="blog-body">
+            <div class="blog-tag">Urban Development</div>
+            <h3>Beyond Slum Upgrading: Rethinking the Research Agenda for Dhaka's Urban Poor</h3>
+            <p>Traditional slum upgrading programmes often miss the complexity of informal urban systems. New research frameworks are needed to capture the full picture.</p>
+            <div class="blog-footer">
+              <span>Md. Karim Uddin</span>
+              <span>March 28, 2025</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-banner g3">📊</div>
+          <div class="blog-body">
+            <div class="blog-tag">Research Methods</div>
+            <h3>Five Hard Lessons from Running 50,000 CAPI Surveys in Rural Bangladesh</h3>
+            <p>A candid reflection on the practical challenges of large-scale digital data collection — from connectivity issues to enumerator bias — and how we've addressed them.</p>
+            <div class="blog-footer">
+              <span>Nusrat Begum</span>
+              <span>March 10, 2025</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-banner g4">🏥</div>
+          <div class="blog-body">
+            <div class="blog-tag">Public Health</div>
+            <h3>The Mental Health Crisis in Flood-Displaced Communities: An Overlooked Dimension</h3>
+            <p>Humanitarian response to flooding in Bangladesh has focused on physical recovery, but our research reveals a growing mental health emergency that demands urgent attention.</p>
+            <div class="blog-footer">
+              <span>Dr. Fatema Begum</span>
+              <span>February 18, 2025</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-banner g5">♻️</div>
+          <div class="blog-body">
+            <div class="blog-tag">Sustainability</div>
+            <h3>Can Bangladesh's Garment Sector Lead on Circular Economy? Early Evidence Says Yes</h3>
+            <p>New research on circular practices in the ready-made garment industry reveals surprising pockets of innovation — and a significant scaling challenge ahead.</p>
+            <div class="blog-footer">
+              <span>ResearchLearningHub</span>
+              <span>January 30, 2025</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-banner g6">📚</div>
+          <div class="blog-body">
+            <div class="blog-tag">Education</div>
+            <h3>What the PISA Results Don't Tell Us: A South Asian Research Perspective on Learning Poverty</h3>
+            <p>Global learning assessments like PISA miss millions of children in low-income countries. Here's what locally developed assessment tools reveal about learning in Bangladesh.</p>
+            <div class="blog-footer">
+              <span>Dr. Arman Hossain</span>
+              <span>January 8, 2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════ CONTACT ══════════════════════ -->
+<div class="page" id="page-contact">
+  <section class="section">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-label">Get in Touch</div>
+        <h1 class="section-title">Let's Start a Research Partnership</h1>
+        <p class="section-sub">Whether you have a project brief or just an idea, we'd love to hear from you. Our team typically responds within 24 hours.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-item-icon">📍</div>
+              <div>
+                <h4>Office Address</h4>
+                <p>House 12, Road 7, Block C<br>Banani, Dhaka-1213, Bangladesh</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📧</div>
+              <div>
+                <h4>Email Us</h4>
+                <p>info@researchlearninghub.org<br>research@researchlearninghub.org</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📞</div>
+              <div>
+                <h4>Call Us</h4>
+                <p>+880 2-8833 4567<br>+880 17XX-XXXXXX</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">🕐</div>
+              <div>
+                <h4>Office Hours</h4>
+                <p>Sunday – Thursday: 9:00 AM – 6:00 PM<br>Friday & Saturday: Closed</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-placeholder" style="margin-top:28px;">
+            <div class="map-icon">🗺️</div>
+            <h3>Find Us on the Map</h3>
+            <p>Embed your Google Maps iframe here for WordPress</p>
+            <div class="address">House 12, Road 7, Block C, Banani, Dhaka-1213</div>
+            <div style="margin-top:16px;padding:12px;background:white;border-radius:8px;font-size:13px;color:var(--green-mid);font-weight:600;">
+              [Google Maps Embed — Add API Key in WordPress]
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h3>Send Us a Message</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name *</label>
+              <input type="text" placeholder="Your first name">
+            </div>
+            <div class="form-group">
+              <label>Last Name *</label>
+              <input type="text" placeholder="Your last name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" placeholder="you@organization.org">
+          </div>
+          <div class="form-group">
+            <label>Organization / Institution</label>
+            <input type="text" placeholder="Your organization name">
+          </div>
+          <div class="form-group">
+            <label>Service of Interest</label>
+            <select>
+              <option value="">Select a service...</option>
+              <option>Social Science Research</option>
+              <option>Environmental Impact Assessment</option>
+              <option>Data Collection & Field Surveys</option>
+              <option>Policy Analysis</option>
+              <option>Monitoring & Evaluation</option>
+              <option>Data Analysis & Visualization</option>
+              <option>Other / Multiple Services</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message *</label>
+            <textarea placeholder="Tell us about your project, research question, or how we can help you..."></textarea>
+          </div>
+          <button class="btn-primary" style="width:100%;text-align:center;" onclick="alert('Thank you! We will respond within 24 hours.')">Send Message →</button>
+          <p style="font-size:12px;color:var(--text-light);margin-top:16px;text-align:center;">By submitting, you agree to our Privacy Policy. We respect your data and never share it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo" onclick="showPage('home')" style="margin-bottom:4px;display:inline-flex;">
+        <div class="logo-mark">R</div>
+        <div class="logo-text" style="margin-left:10px;">
+          <span class="logo-name" style="color:white;">ResearchLearningHub</span>
+          <span class="logo-sub" style="color:rgba(255,255,255,0.5);">Social Science · Environment</span>
+        </div>
+      </a>
+      <p>Advancing evidence-based knowledge for sustainable development and a just, resilient world. Based in Dhaka, working globally.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('services')">Social Research</a></li>
+        <li><a href="#" onclick="showPage('services')">Environmental EIA</a></li>
+        <li><a href="#" onclick="showPage('services')">Field Surveys</a></li>
+        <li><a href="#" onclick="showPage('services')">Policy Analysis</a></li>
+        <li><a href="#" onclick="showPage('services')">M&E Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Research</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('research')">Climate Change</a></li>
+        <li><a href="#" onclick="showPage('research')">Urban Development</a></li>
+        <li><a href="#" onclick="showPage('research')">Public Health</a></li>
+        <li><a href="#" onclick="showPage('research')">Education</a></li>
+        <li><a href="#" onclick="showPage('research')">Sustainability</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('about')">About Us</a></li>
+        <li><a href="#" onclick="showPage('projects')">Projects</a></li>
+        <li><a href="#" onclick="showPage('publications')">Publications</a></li>
+        <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 ResearchLearningHub. All rights reserved.</span>
+    <span>Privacy Policy · Terms of Use · Cookie Policy</span>
+  </div>
+</footer>
+
+<script>
+  function showPage(id) {
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    // Show target
+    document.getElementById('page-' + id).classList.add('active');
+    // Update nav
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    const navEl = document.getElementById('nav-' + id);
+    if (navEl) navEl.classList.add('active');
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return false;
+  }
+
+  function toggleMobileMenu() {
+    const links = document.getElementById('navLinks');
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '72px';
+    links.style.left = '0'; links.style.right = '0';
+    links.style.background = 'white';
+    links.style.padding = '16px';
+    links.style.borderBottom = '1px solid #d4e4da';
+    links.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
+  }
+</script>
+
+</body>
+</html>
